@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #f5f7fa, #c3cfe2);
+      color: #333;
+    }
+    .logo-container {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      gap: 15px;
+      z-index: 1000;
+    }
+    .logo-item img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+    .logo-item:hover img {
+      transform: scale(1.15);
+    }
+    #hero {
+      height: 100vh;
+      background: url('https://www.keyweo.com/wp-content/uploads/2021/09/google-logo-history.jpg') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+      position: relative;
+    }
+    .hero-content {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .hero-content h1 {
+      font-size: 3em;
+      color: #202124;
+    }
+    .hero-content p {
+      margin: 20px 0;
+      font-size: 1.2em;
+    }
+    .button {
+      background: #4285F4;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .button:hover {
+      background: #3367d6;
+    }
+    .info-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: 60px 20px;
+    }
+    .left-box, .right-box {
+      flex: 1;
+      min-width: 300px;
+      margin: 10px;
+      padding: 30px;
+      border-radius: 16px;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .left-box {
+      background: linear-gradient(135deg, #34A853, #0f9d58);
+    }
+    .right-box {
+      background: linear-gradient(135deg, #EA4335, #c0392b);
+    }
+    .info-button {
+      background: white;
+      color: #333;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-block;
+      margin-top: 20px;
+    }
+    .info-button:hover {
+      background: #f0f0f0;
+    }
+    #products {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    #products h1 {
+      font-size: 2.5em;
+      color: #202124;
+    }
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      width: 260px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+    }
+    .card img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 10px;
+    }
+    .card h3 {
+      margin: 10px 0;
+      font-weight: 700;
+      color: #4285F4;
+    }
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin: 15px 0;
+    }
+    .card ul li {
+      margin: 5px 0;
+      font-size: 0.95em;
+    }
+    .card button {
+      background: #34A853;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .card button:hover {
+      background: #2c8b45;
+    }
+    #video-section {
+      padding: 60px 20px;
+      text-align: center;
+      background: #fff;
+    }
+    #video-section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #202124;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      background: #000;
+      border-radius: 12px;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    #subscribe {
+      padding: 80px 20px;
+      background: #f8f9fa;
+      display: flex;
+      justify-content: center;
+    }
+    #subscribeForm {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+    #subscribeForm h1 {
+      margin-bottom: 20px;
+      font-size: 1.8em;
+      color: #202124;
+    }
+    #subscribeForm label {
+      font-weight: 600;
+      margin-top: 15px;
+      display: block;
+    }
+    #subscribeForm input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    #subscribeForm button {
+      background: #4285F4;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #subscribeForm button:hover {
+      background: #3367d6;
+    }
+    #successMessage {
+      color: #0f9d58;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 15px;
+    }
+    @media (max-width: 768px) {
+      .info-boxes {
+        flex-direction: column;
+        align-items: center;
+      }
+      .card-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-container">
+    <a class="logo-item" href="https://workspace.google.com/intl/en-US/gmail/" target="_blank">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/012/871/452/small/gmail-icon-google-product-illustration-free-png.png" alt="Gmail" />
+    </a>
+    <a class="logo-item" href="https://drive.google.com/" target="_blank">
+      <img src="https://static.vecteezy.com/system/resources/previews/012/871/368/non_2x/google-drive-icon-google-product-illustration-free-png.png" alt="Drive" />
+    </a>
+    <a class="logo-item" href="https://meet.google.com/" target="_blank">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTtVfSqt-RHqpZyqOxhoJRcGEnphUzaNrcGw&s" alt="Meet" />
+    </a>
+    <a class="logo-item" href="https://www.google.com/maps" target="_blank">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7lPZ7_FG20rWZQeiUbQBDhTUpQQ1H-ZoNDA&s" alt="Maps" />
+    </a>
+  </div>
+
+  <section id="hero">
+    <div class="hero-content">
+      <h1 class="animated-text">Helpful Products for Everyone!</h1>
+      <p>Safer with Google.</p>
+      <a href="#products" class="button">Browse Our Product Plans</a>
+    </div>
+  </section>
+
+  <div class="info-boxes">
+    <div class="left-box">
+      <h2>Welcome to Google Services</h2>
+      <p>Google services are wide, useful, and easy to implement in daily life.</p>
+      <a href="#more" class="info-button">Click to Know More</a>
+    </div>
+    <div class="right-box">
+      <p>Avail the services for free.</p>
+      <p>Subscribe to get started instantly.</p>
+      <a href="#subscribe" class="info-button">Click to Subscribe</a>
+    </div>
+  </div>
+
+  <section id="products">
+    <h1>Our Product Plans</h1>
+    <div class="card-container">
+      <!-- Cards repeated as in your code -->
+       <div class="card">
+  <img src="https://pngimg.com/d/chrome_logo_PNG13.png" alt="Chrome" />
+  <h3>CHROME</h3>
+  <h2>Plans for Chrome</h2>
+  <ul>
+    <li>Price: Rs 10/month</li>
+    <li>Storage: 10GB</li>
+    <li>Bandwidth: 100GB</li>
+  </ul>
+  <button>Get Started</button>
+</div>
+
+<div class="card">
+  <img src="https://e7.pngegg.com/pngimages/89/642/png-clipart-google-assistant-google-home-amazon-alexa-home-automation-kits-google-text-logo-thumbnail.png" alt="Assistant" />
+  <h3>Google Assistant</h3>
+  <h2>Plans for Assistant</h2>
+  <ul>
+    <li>Price: Rs 20/month</li>
+    <li>Storage: 50GB</li>
+    <li>Bandwidth: 500GB</li>
+  </ul>
+  <button>Get Started</button>
+</div>
+
+<div class="card">
+  <img src="https://images.seeklogo.com/logo-png/33/2/google-pay-logo-png_seeklogo-334912.png" alt="GPay" />
+  <h3>Google Pay</h3>
+  <h2>Plans for GPay</h2>
+  <ul>
+    <li>Price: Rs 50/month</li>
+    <li>Storage: 200GB</li>
+    <li>Bandwidth: Unlimited</li>
+  </ul>
+  <button>Get Started</button>
+</div>
+
+<div class="card">
+  <img src="https://images.squarespace-cdn.com/content/v1/62460a56418af8236d4f3fee/1678916323032-F7IXUXCT6KWP8HJ3U0RO/google+calendar.jpg" alt="Calendar" />
+  <h3>Google Calendar</h3>
+  <h2>Plans for Calendar</h2>
+  <ul>
+    <li>Price: Rs 100/month</li>
+    <li>Storage: 1TB</li>
+    <li>Bandwidth: Unlimited</li>
+  </ul>
+  <button>Get Started</button>
+</div>
+</div>
+</section>
+<section id="video-section">
+  <h2>Why This Page Exists</h2>
+  <div class="hero-content" style="max-width: 700px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
+    <p style="font-size: 1.1em; line-height: 1.7; color: #444;">
+      This page is a creative showcase inspired by Google’s ecosystem — built to reflect a modern, interactive user experience using core front-end technologies: <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong>. From animated hero sections to dynamic product cards, every detail is designed to demonstrate clean UI design, layout structuring, and responsive styling.
+    </p>
+    <p style="margin-top: 20px; font-size: 1em; color: #666;">
+      Whether you’re browsing product plans or subscribing to updates, this page captures the essence of a functional, well-crafted landing experience — made with love, flair, and a dash of Google magic.
+    </p>
+  </div>
+</section>
+
+
+
+
+  <section id="subscribe">
+    <form id="subscribeForm">
+      <h1>Subscribe to us! For updates and more...</h1>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+      <button type="submit">Subscribe</button>
+      <div id="successMessage" style="display:none;">Thank you for subscribing!</div>
+    </form>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    gsap.from(".animated-text", {
+      duration: 1.5,
+      y: -50,
+      opacity: 0,
+      ease: "power3.out"
+    });
+    gsap.from(".logo-item", {
+      duration: 1,
+      y: -20,
+      opacity: 0,
+      stagger: 0.2,
+      delay: 0.5
+    });
+    document.getElementById("subscribeForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      document.getElementById("successMessage").style.display = "block";
+      setTimeout(() => {
+        document.getElementById("successMessage").style.display = "none";
+        this.reset();
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
